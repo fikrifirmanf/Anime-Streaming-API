@@ -1,6 +1,6 @@
 # Documentation
 
-This is a Restful API about anime streaming created using **NodeJS**.>.
+This is a Restful API about anime streaming created using **NodeJS**.
 
 ## Demo
 
