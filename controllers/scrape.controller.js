@@ -17,10 +17,10 @@ module.exports = {
                 const $ = cheerio.load(text)
                 console.log($)
                 var jsonData = []
-                if (resp.status >= 400) return res.json({
-                    status: resp.status,
-                    message: 'error'
-                })
+                // if (resp.status >= 400) return res.json({
+                //     status: resp.status,
+                //     message: 'error'
+                // })
                 $('#venkonten > div.vezone > div.venser > div.venutama > div > div > div.venz > ul > li').each(function (i, e) {
                     jsonData.push({})
                     const $e = $(e)
@@ -56,18 +56,18 @@ module.exports = {
             const text = await resp.text()
             const $ = cheerio.load(text)
             
-            if (resp.status >= 400) return res.json({
-                status: resp.status,
-                message: 'error'
-            })
+            // if (resp.status >= 400) return res.json({
+            //     status: resp.status,
+            //     message: 'error'
+            // })
             
             var downloadList = []
             var prevnext = []
             var jsonData = []
-            if (resp.status >= 400) return res.json({
-                status: resp.status,
-                message: 'error'
-            })
+            // if (resp.status >= 400) return res.json({
+            //     status: resp.status,
+            //     message: 'error'
+            // })
             $('#venkonten > div.venser > div.venutama').each(function (i, e) {
                 jsonData.push({})
                 const $e = $(e)
@@ -120,16 +120,16 @@ module.exports = {
             const text = await resp.text()
             const $ = cheerio.load(text)
         
-            if (resp.status >= 400) return res.json({
-                status: resp.status,
-                message: 'error'
-            })
+            // if (resp.status >= 400) return res.json({
+            //     status: resp.status,
+            //     message: 'error'
+            // })
             var jsonData = []
             var listEpisode = []
-            if (resp.status >= 400) return res.json({
-                status: resp.status,
-                message: 'error'
-            })
+            // if (resp.status >= 400) return res.json({
+            //     status: resp.status,
+            //     message: 'error'
+            // })
             $('#venkonten > div.venser').each(function (i, e) {
                 jsonData.push({})
                 const $e = $(e)
@@ -174,16 +174,16 @@ module.exports = {
 
             const $ = cheerio.load(text)
 
-            if (resp.status >= 400) return res.json({
-                status: resp.status,
-                message: 'error'
-            })
+            // if (resp.status >= 400) return res.json({
+            //     status: resp.status,
+            //     message: 'error'
+            // })
             var jsonData = []
             var listEpisode = []
-            if (resp.status >= 400) return res.json({
-                status: resp.status,
-                message: 'error'
-            })
+            // if (resp.status >= 400) return res.json({
+            //     status: resp.status,
+            //     message: 'error'
+            // })
             $('#venkonten > div.vezone > div.venser > div.venutama > div.page > ul > li').each(function (i, e) {
                 jsonData.push({})
                 const $e = $(e)
