@@ -2,12 +2,12 @@ const fetch = require('isomorphic-fetch')
 const cheerio = require('cheerio')
 
 // base url
-
+const BASE_URL = 'https://otakudesu.moe/'
 
 module.exports = {
 
     onGoing: async (req, res) => {
-        const BASE_URL = 'https://otakudesu.moe/'
+
         try {
             const HOST_NAME = `http://${req.headers.host}`
             const q = req.query.cat
@@ -50,7 +50,6 @@ module.exports = {
         }
     },
     anime: async (req, res) => {
-        const BASE_URL = 'https://otakudesu.moe/'
         try {
             const HOST_NAME = `http://${req.headers.host}`
             const resp = await fetch(`${BASE_URL}${req.query.slug}`)
@@ -114,7 +113,6 @@ module.exports = {
         }
     },
     animeDetail: async (req, res) => {
-        const BASE_URL = 'https://otakudesu.moe/'
 
         try {
             const HOST_NAME = `http://${req.headers.host}`
@@ -169,7 +167,6 @@ module.exports = {
         }
     },
     searchAnime: async(req,res)=>{
-        const BASE_URL = 'https://otakudesu.moe/'
         try {
             const HOST_NAME = `http://${req.headers.host}`
             const resp = await fetch(`${BASE_URL}?s=${req.query.q}&post_type=anime`)
