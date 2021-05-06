@@ -7,12 +7,12 @@ const BASE_URL = 'https://otakudesu.moe/'
 module.exports = {
 
     onGoing: async (req, res) => {
-
+        const resp = (q === 'ongoing')? await fetch(`${BASE_URL}ongoing-anime/`) : await fetch(`${BASE_URL}complete-anime/`)
         try {
             const HOST_NAME = `http://${req.headers.host}`
             const q = req.query.cat
             if (q === 'ongoing' || q === 'complete') {
-                const resp = (q === 'ongoing')? await fetch(`${BASE_URL}ongoing-anime/`) : await fetch(`${BASE_URL}complete-anime/`)
+                
                 const text = await resp.text()
                 const $ = cheerio.load(text)
                 console.log($)
