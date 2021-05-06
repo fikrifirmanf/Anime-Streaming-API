@@ -18,26 +18,28 @@ module.exports = {
                 const $ = cheerio.load(text)
                 console.log($)
                 var jsonData = []
-                if (resp.status >= 400) return res.json({
+                if (resp.status >= 400) { res.json({
                     status: resp.status,
                     message: 'error'
-                })
-                $('#venkonten > div.vezone > div.venser > div.venutama > div > div > div.venz > ul > li').each(function (i, e) {
-                    jsonData.push({})
-                    const $e = $(e)
-                    jsonData[i].imgUrl = $e.find('div > div.thumb > a > div.thumbz > img').attr('src')
-                    jsonData[i].title = $e.find('div > div.thumb > a >div.thumbz > h2').text()
-                    jsonData[i].slug = $e.find('div > div.thumb > a ').attr('href').replace(/^.*\/\/[^\/]*/, '').replace('/', '')
-                    jsonData[i].linkUrl = `${HOST_NAME}/detail?slug=`+$e.find('div > div.thumb > a ').attr('href').replace(/^.*\/\/[^\/]*/, '').replace('/', '')
-                    jsonData[i].episode = $e.find('div > div.epz').text().trim()
-                    jsonData[i].rating = $e.find('div > div.epztipe').text().trim()
-                    jsonData[i].date = $e.find('div > div.newnime').text().trim()
-
-                })
-                res.json({
-                    category: q,
-                    data: jsonData
-                })
+                })}else {
+                    $('#venkonten > div.vezone > div.venser > div.venutama > div > div > div.venz > ul > li').each(function (i, e) {
+                        jsonData.push({})
+                        const $e = $(e)
+                        jsonData[i].imgUrl = $e.find('div > div.thumb > a > div.thumbz > img').attr('src')
+                        jsonData[i].title = $e.find('div > div.thumb > a >div.thumbz > h2').text()
+                        jsonData[i].slug = $e.find('div > div.thumb > a ').attr('href').replace(/^.*\/\/[^\/]*/, '').replace('/', '')
+                        jsonData[i].linkUrl = `${HOST_NAME}/detail?slug=`+$e.find('div > div.thumb > a ').attr('href').replace(/^.*\/\/[^\/]*/, '').replace('/', '')
+                        jsonData[i].episode = $e.find('div > div.epz').text().trim()
+                        jsonData[i].rating = $e.find('div > div.epztipe').text().trim()
+                        jsonData[i].date = $e.find('div > div.newnime').text().trim()
+    
+                    })
+                    res.json({
+                        category: q,
+                        data: jsonData
+                    })
+                }
+               
             } else {
                 res.json({
                     message: 'Not Found!'
