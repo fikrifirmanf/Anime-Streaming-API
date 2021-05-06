@@ -1,7 +1,12 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
+const helmet = require('helmet')
 const PORT = process.env.PORT || 8766
 const ScrapeController = require('./controllers/scrape.controller')
+
+app.use(cors())
+app.use(helmet())
 
 app.get('/category',ScrapeController.onGoing)
 app.get('/detail',ScrapeController.animeDetail)
