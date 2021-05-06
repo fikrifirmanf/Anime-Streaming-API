@@ -14,14 +14,15 @@ module.exports = {
            
             if (q === 'ongoing' || q === 'complete') {
                 
-                const text = await resp.text()
-                const $ = cheerio.load(text)
-                console.log($)
-                var jsonData = []
+               
                 if (resp.status >= 400) { res.json({
                     status: resp.status,
                     message: 'error'
                 })}else {
+                    const text = await resp.text()
+                    const $ = cheerio.load(text)
+                    console.log($)
+                    var jsonData = []
                     $('#venkonten > div.vezone > div.venser > div.venutama > div > div > div.venz > ul > li').each(function (i, e) {
                         jsonData.push({})
                         const $e = $(e)
