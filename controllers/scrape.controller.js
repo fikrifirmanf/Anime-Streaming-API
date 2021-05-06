@@ -7,10 +7,11 @@ const BASE_URL = 'https://otakudesu.moe/'
 module.exports = {
 
     onGoing: async (req, res) => {
+        const q = req.query.cat
         const resp = (q === 'ongoing')? await fetch(`${BASE_URL}ongoing-anime/`) : await fetch(`${BASE_URL}complete-anime/`)
         try {
             const HOST_NAME = `http://${req.headers.host}`
-            const q = req.query.cat
+           
             if (q === 'ongoing' || q === 'complete') {
                 
                 const text = await resp.text()
