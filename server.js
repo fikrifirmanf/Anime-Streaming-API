@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8766
 const ScrapeController = require('./controllers/scrape.controller')
 
 app.get('/category',ScrapeController.onGoing)
