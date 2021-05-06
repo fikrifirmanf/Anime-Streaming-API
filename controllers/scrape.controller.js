@@ -17,7 +17,7 @@ module.exports = {
                 const $ = cheerio.load(text)
                 console.log($)
                 var jsonData = []
-                if (resp.status != 200) return res.json({
+                if (resp.status >= 400) return res.json({
                     status: resp.status,
                     message: 'error'
                 })
@@ -56,7 +56,7 @@ module.exports = {
             const text = await resp.text()
             const $ = cheerio.load(text)
             
-            if (resp.status != 200) return res.json({
+            if (resp.status >= 400) return res.json({
                 status: resp.status,
                 message: 'error'
             })
@@ -64,7 +64,7 @@ module.exports = {
             var downloadList = []
             var prevnext = []
             var jsonData = []
-            if (resp.status != 200) return res.json({
+            if (resp.status >= 400) return res.json({
                 status: resp.status,
                 message: 'error'
             })
@@ -120,13 +120,13 @@ module.exports = {
             const text = await resp.text()
             const $ = cheerio.load(text)
         
-            if (resp.status != 200) return res.json({
+            if (resp.status >= 400) return res.json({
                 status: resp.status,
                 message: 'error'
             })
             var jsonData = []
             var listEpisode = []
-            if (resp.status != 200) return res.json({
+            if (resp.status >= 400) return res.json({
                 status: resp.status,
                 message: 'error'
             })
@@ -174,13 +174,13 @@ module.exports = {
 
             const $ = cheerio.load(text)
 
-            if (resp.status != 200) return res.json({
+            if (resp.status >= 400) return res.json({
                 status: resp.status,
                 message: 'error'
             })
             var jsonData = []
             var listEpisode = []
-            if (resp.status != 200) return res.json({
+            if (resp.status >= 400) return res.json({
                 status: resp.status,
                 message: 'error'
             })
