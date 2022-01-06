@@ -1,0 +1,18 @@
+{
+  "name": "animeapi",
+  "version": "1.0.0",
+  "description": "anime api bajakan",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rii amri",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "helmet": "^5.0.1",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
