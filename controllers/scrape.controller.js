@@ -14,7 +14,6 @@ module.exports = {
            
             if (q === 'ongoing' || q === 'complete') {
                 
-               
                 if (resp.status >= 400) { res.json({
                     status: resp.status,
                     message: resp.statusText
@@ -141,9 +140,6 @@ module.exports = {
                 jsonData[i].title = $e.find('div.jdlrx > h1').text()
                 jsonData[i].info = $e.find('div.fotoanime > div.infozin > div.infozingle').html().replace(/(?:https?|ftp):\/\/[\n\S]+/g, '#"')
                 jsonData[i].synopsis = $e.find('div.fotoanime > div.sinopc > p').text().trim()
-
-
-
             })
             // List Episode
             $('#venkonten > div.venser > div:nth-child(8) > ul > li').each(function (i, e) {
@@ -153,8 +149,6 @@ module.exports = {
                 listEpisode[i].titleEp = text
                 listEpisode[i].slug = $e.find('span > a').attr('href').replace(/^.*\/\/[^\/]*/, '').replace('/', '')
                 listEpisode[i].linkUrl = `${HOST_NAME}/anime?slug=`+$e.find('span > a').attr('href').replace(/^.*\/\/[^\/]*/, '').replace('/', '')
-
-
             })
             res.json({
 
