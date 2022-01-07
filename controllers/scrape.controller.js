@@ -17,7 +17,7 @@ module.exports = {
                
                 if (resp.status >= 400) { res.json({
                     status: resp.status,
-                    message: 'error'
+                    message: resp.statusText
                 })}else {
                     const text = await resp.text()
                     const $ = cheerio.load(text)
@@ -62,7 +62,7 @@ module.exports = {
             
             if (resp.status >= 400) return res.json({
                 status: resp.status,
-                message: 'error'
+                message: resp.statusText
             })
             
             var downloadList = []
@@ -125,7 +125,7 @@ module.exports = {
         
             if (resp.status >= 400) return res.json({
                 status: resp.status,
-                message: 'error'
+                message: resp.statusText
             })
             var jsonData = []
             var listEpisode = []
@@ -179,7 +179,7 @@ module.exports = {
 
             if (resp.status >= 400) return res.json({
                 status: resp.status,
-                message: 'error'
+                message: resp.statusText
             })
             var jsonData = []
             var listEpisode = []
