@@ -10,7 +10,7 @@ module.exports = {
         const q = req.query.cat
         const resp = (q === 'ongoing')? await fetch(`${BASE_URL}ongoing-anime/`) : await fetch(`${BASE_URL}complete-anime/`)
         try {
-            const HOST_NAME = `http://${req.headers.host}`
+            const HOST_NAME = `https://${req.headers.host}`
            
             if (q === 'ongoing' || q === 'complete') {
                 
@@ -55,7 +55,7 @@ module.exports = {
     },
     anime: async (req, res) => {
         try {
-            const HOST_NAME = `http://${req.headers.host}`
+            const HOST_NAME = `https://${req.headers.host}`
             const resp = await fetch(`${BASE_URL}${req.query.slug}`)
             const text = await resp.text()
             const $ = cheerio.load(text)
@@ -118,7 +118,7 @@ module.exports = {
     animeDetail: async (req, res) => {
 
         try {
-            const HOST_NAME = `http://${req.headers.host}`
+            const HOST_NAME = `https://${req.headers.host}`
             const resp = await fetch(`${BASE_URL}${req.query.slug}`)
             const text = await resp.text()
             const $ = cheerio.load(text)
@@ -171,7 +171,7 @@ module.exports = {
     },
     searchAnime: async(req,res)=>{
         try {
-            const HOST_NAME = `http://${req.headers.host}`
+            const HOST_NAME = `https://${req.headers.host}`
             const resp = await fetch(`${BASE_URL}?s=${req.query.q}&post_type=anime`)
             const text = await resp.text()
 
