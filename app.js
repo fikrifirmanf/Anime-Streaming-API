@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const helmet = require('helmet')
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 const ScrapeController = require('./controllers/scrape.controller')
 
 app.use(cors())
