@@ -5,7 +5,43 @@ const cheerio = require('cheerio')
 const BASE_URL = 'https://otakudesu.info/'
 
 module.exports = {
+    animeList: async(req, res) => {
+        // const q = req.query.cat;
+        // console.log(q);
+        const resp = await fetch(`${BASE_URL}anime-list`);
+        try{
+            const HOST_NAME = `https://${req.headers.host}`;
 
+            if(resp.status >= 400){res.json({
+                status: resp.status,
+                message: resp.statusText,
+            })}else{
+                const text = await resp.text();
+                const $ = cheerio.load(text);
+                console.log($);
+                let jsonData = [];
+                $('#venkonten > div.vezone > div.venser > div.daftarkartun > div#abtext > div.bariskelom > div.penzbar > div.jdlbar').each(function(i, e){
+                    const $e = $(e);
+                    // if($e != ""){
+                    jsonData.push({});
+                    jsonData[i].title = $e.find("div > ul > li > a").text();
+                    jsonData[i].linkUrl = $e.find("div > ul > li > a").attr('href');
+                    
+                });
+                res.json({
+                    data: jsonData
+                })
+
+            }
+
+        }catch(e){
+            console.log(e)
+            res.status(500).json({
+                message: e
+            })
+
+        }
+    },
     onGoing: async (req, res) => {
         const q = req.query.cat
         const resp = (q === 'ongoing')? await fetch(`${BASE_URL}ongoing-anime/`) : await fetch(`${BASE_URL}complete-anime/`)

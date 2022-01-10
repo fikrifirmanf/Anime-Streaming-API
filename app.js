@@ -8,6 +8,7 @@ const ScrapeController = require('./controllers/scrape.controller')
 app.use(cors())
 app.use(helmet())
 
+app.get('/animelist',ScrapeController.animeList)
 app.get('/category',ScrapeController.onGoing)
 app.get('/detail',ScrapeController.animeDetail)
 app.get('/anime',ScrapeController.anime)
