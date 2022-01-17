@@ -7,4 +7,4 @@ ADD . /app
 WORKDIR /app
 
 RUN npm install
-CMD npm dev
+CMD npm run dev
