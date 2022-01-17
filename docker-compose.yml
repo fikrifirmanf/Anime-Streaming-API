@@ -1,9 +1,6 @@
-version: '3.8'
+version: '3.7'
 services:
   anime-api:
-    build: .
-    container_name: anime-api-scrape
+    app: .
     ports: 
       - 3005:8766
-    volumes:
-      - .:/app
