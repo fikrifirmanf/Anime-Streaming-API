@@ -1,6 +1,7 @@
 version: '3.7'
 services:
-  anime-api:
-    app: .
+  app:
+    image: animescrape:0.0.1
+    build: .
     ports: 
       - 3005:8766
