@@ -33,17 +33,17 @@ npm run dev
 
 ## REST API
 
-GET <http://localhost:3000/search?q=boruto> --> Search anime
+GET <http://localhost:3003/api/search?q=boruto> --> Search anime
 
-GET <http://localhost:3000/anime?slug=skms-episode-2-sub-indo> --> Getting anime streaming link
+GET <http://localhost:3003/api/anime?slug=skms-episode-2-sub-indo> --> Getting anime streaming link
 
-GET <http://localhost:3000/detail?slug=anime/megalo-box-s2-sub-indo/> --> Getting anime detail
+GET <http://localhost:3003/api/detail?slug=anime/megalo-box-s2-sub-indo/> --> Getting anime detail
 
-GET <http://localhost:3000/category?cat=ongoing> --> Getting anime category ongoing/complete
+GET <http://localhost:3003/api/category?cat=ongoing> --> Getting anime category ongoing/complete
 
 ## Data Source
 
-<https://otakudesu.moe/>
+<https://otakudesu.bid/>
 
 ### NOT FOR COMMERCIAL
 
