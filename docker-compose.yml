@@ -4,6 +4,8 @@ services:
     build: ./
     restart: unless-stopped
     container_name: fnime-api
+    env_file:
+      - .env
   nginx:
     build: ./nginx
     ports:
