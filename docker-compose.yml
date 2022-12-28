@@ -7,4 +7,4 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - 84:84
+      - 84:80
