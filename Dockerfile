@@ -1,10 +1,25 @@
+# Base on offical Node.js Alpine image
 FROM node:alpine
 
-RUN apk update && apk add ca-certificates openssl && update-ca-certificates
+# Set working directory
+WORKDIR /usr/app
 
-RUN mkdir /app
-ADD . /app
-WORKDIR /app
+# Copy package.json and package-lock.json before other files
+# Utilise Docker cache to save re-installing dependencies if unchanged
+COPY ./package*.json ./
 
+# Install dependencies
 RUN npm install
-CMD npm run dev
+
+# Copy all files
+COPY ./ ./
+
+# Expose the listening port
+EXPOSE 3003
+
+# Run container as non-root (unprivileged) user
+# The node user is provided in the Node.js Alpine base image
+USER node
+
+# Run yarn start script when container starts
+CMD [ "npm", "start" ]

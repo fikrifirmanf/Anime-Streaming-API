@@ -1,7 +1,10 @@
-version: '3.7'
+version: "3"
 services:
-  app:
-    image: animescrape:0.0.1
-    build: .
-    ports: 
-      - 3005:8766
+  fportfolio_api:
+    build: ./
+    restart: unless-stopped
+    container_name: fnime-api
+  nginx:
+    build: ./nginx
+    ports:
+      - 84:80

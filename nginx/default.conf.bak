@@ -1,0 +1,23 @@
+# single container
+
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=STATIC:10m inactive=7d use_temp_path=off;
+
+upstream fportfolio_api_upstream {
+  server fportfolio_api:3002;
+}
+
+server {
+  listen 80 default_server;
+
+  server_name api.fikrifirmanf.com;
+
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection 'upgrade';
+  proxy_set_header Host $host;
+  proxy_cache_bypass $http_upgrade;
+
+  location / {
+    proxy_pass http://fportfolio_api_upstream;
+  }
+}

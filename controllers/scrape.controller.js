@@ -1,8 +1,10 @@
+require('dotenv').config()
 const fetch = require('isomorphic-fetch')
 const cheerio = require('cheerio')
 
+
 // base url
-const BASE_URL = 'https://otakudesu.moe/'
+const BASE_URL = process.env.BASE_URL || 'https://otakudesu.bid/'
 
 module.exports = {
 

@@ -1,0 +1,16 @@
+name: Production Deploy 🚀
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: fnime-api-runner
+    environment:
+      name: "production"
+      url: https://anime-api.fikrifirmanf.com/
+    steps:
+      - uses: actions/checkout@v3
+      - name: Docker compose build
+        run: sudo docker-compose up --build -d
