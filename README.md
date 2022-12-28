@@ -4,8 +4,7 @@ This is a Restful API about anime streaming created using **NodeJS**.
 
 ## Demo
 
-<#>
-Comming Soon
+<https://anime-api.fikrifirmanf.com/api/>
 
 ## Installation
 
