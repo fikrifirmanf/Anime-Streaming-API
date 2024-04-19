@@ -12,7 +12,7 @@ module.exports = {
         const q = req.query.cat
         const resp = (q === 'ongoing')? await fetch(`${BASE_URL}ongoing-anime/`) : await fetch(`${BASE_URL}complete-anime/`)
         try {
-            const HOST_NAME = `http://${req.headers.host}`
+            const HOST_NAME = `http://${req.headers.host}/api`
            
             if (q === 'ongoing' || q === 'complete') {
                 
